@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import useFormContext from "../hooks/useFormContext";
 
@@ -10,10 +10,15 @@ type TooltipProps = {
 
 const Tooltip = ({ message, isVisible, hideTooltip }: TooltipProps) => {
   const { currentStep, motion, AnimatePresence } = useFormContext();
+
+  const timerRef = useRef<number | null>(null);
+
   useEffect(() => {
-    if (isVisible) {
-      const timer = setTimeout(hideTooltip, 3000);
-      return () => clearTimeout(timer);
+    if (isVisible && timerRef.current === null) {
+      timerRef.current = setTimeout(hideTooltip, 3000);
+    } else if (!isVisible && timerRef.current !== null) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
     }
   }, [isVisible, hideTooltip]);
 
