@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  body {
+    @apply bg-Magnolia lg:grid lg:min-h-screen lg:place-content-center;
+  }
+}
+
+body {
+  font-display: swap;
+}
+
+.picked-add-ons {
+  scroll-snap-type: x mandatory;
+}
+
+.picked-add-on {
+  scroll-snap-align: center;
+}
