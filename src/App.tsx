@@ -7,6 +7,7 @@ import ProgressIndicator from "./components/ProgressIndicator";
 const App = () => {
   return (
     <main className="relative z-[1] flex h-[550px] max-w-5xl flex-wrap justify-center gap-16 rounded-lg bg-white px-3 py-3 text-marine-blue shadow-lg lg:min-w-[895px] lg:overflow-hidden">
+      <h1 className="sr-only">Multi Step Form</h1>
       <FormProvider>
         <>
           <ProgressIndicator />
