@@ -1,5 +1,5 @@
 import { BadgeCheck, SkipForward, StepBack } from "lucide-react";
-import useFormContext from "../hooks/useFormContext";
+import useFormContext from "../../hooks/useFormContext";
 
 const NavigationControls = () => {
   const { handlePrevStep, handleNextStep, currentStep, handleSubmit } =

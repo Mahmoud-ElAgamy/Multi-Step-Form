@@ -10,7 +10,7 @@ const App = () => {
       <FormProvider>
         <>
           <ProgressIndicator />
-          <section className="mt-20 max-w-[680px] flex-grow rounded-lg bg-white p-5 lg:mt-0 lg:p-8">
+          <section className="mt-20 max-w-[680px] flex-grow overflow-x-hidden rounded-lg bg-white p-5 lg:mt-0 lg:p-8">
             <MultiStepForm />
           </section>
         </>

@@ -71,7 +71,9 @@ const Step4 = () => {
             </button>
           </div>
         </div>
-        <div className="picked-add-ons flex w-[140px] gap-5 overflow-x-scroll rounded-md text-center shadow">
+        <div
+          className={`picked-add-ons flex ${selectedAddOns.length && "w-[140px] shadow"} gap-5 overflow-x-scroll rounded-md text-center`}
+        >
           {selectedAddOnsJSX}
         </div>
       </li>

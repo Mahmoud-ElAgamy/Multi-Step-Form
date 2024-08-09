@@ -7,79 +7,27 @@ import {
   useMemo,
 } from "react";
 
+// Utils
 import {
   validateName,
   validateEmail,
   validatePhone,
   validatePlan,
 } from "../validation/validationFunctions";
+import calculatePlanAndTotalCost from "../utils/calculatePlanAndTotalCost";
 
+// Framer Motion Library
 import { motion, AnimatePresence } from "framer-motion";
 
 // Types
-type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  plan: "arcade" | "advanced" | "pro" | "";
-  isYearlyPlan: boolean;
-  addOns: {
-    [key: string]: boolean;
-  };
-};
-
-type AddOnsPrices = {
-  [key: string]: number;
-};
-
-type FieldErrors = {
-  name: string;
-  email: string;
-  phone: string;
-  plan: string;
-};
-
-type FieldVisibility = {
-  name: boolean;
-  email: boolean;
-  phone: boolean;
-  plan: boolean;
-};
-
-export type FormContextType = {
-  formData: FormData;
-  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
-  errors: FieldErrors;
-  setErrors: React.Dispatch<React.SetStateAction<FieldErrors>>;
-  tooltipVisibility: FieldVisibility;
-  setTooltipVisibility: React.Dispatch<React.SetStateAction<FieldVisibility>>;
-  currentStep: number;
-  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  calculatePlanAndTotalCost: (formData: FormData) => PlanPriceDetails;
-  handleNextStep: () => void;
-  handlePrevStep: () => void;
-  handleValidate: () => boolean;
-  handleSubmit: () => void;
-  refs: Refs;
-  motion: typeof motion;
-  AnimatePresence: typeof AnimatePresence;
-};
-
-type Refs = Record<string, React.RefObject<HTMLInputElement>>;
-
-type FormContextProps = {
-  children: JSX.Element;
-};
-
-type PlanPriceDetails = {
-  planPrice: number;
-  totalCost: number;
-  selectedAddOns: {
-    name: string;
-    price: number;
-  }[];
-};
+import {
+  FormContextProps,
+  FormContextType,
+  FormData,
+  Refs,
+  FieldVisibility,
+  FieldErrors,
+} from "../types/formData";
 
 const FormContext = createContext<FormContextType | null>(null);
 
@@ -192,37 +140,6 @@ export const FormProvider = ({ children }: FormContextProps) => {
     setCurrentStep(currentStep + 1);
   }, [currentStep]);
 
-  const calculatePlanAndTotalCost = useCallback(
-    (formData: FormData): PlanPriceDetails => {
-      const basePrice =
-        formData.plan === "arcade" ? 9 : formData.plan === "advanced" ? 12 : 15;
-      const planPrice = formData.isYearlyPlan ? basePrice * 10 : basePrice;
-
-      const addOnsPrices: AddOnsPrices = {
-        "online-service": 1,
-        "larger-storage": 2,
-        "customizable-profile": 2,
-      };
-
-      const selectedAddOns = Object.entries(formData.addOns)
-        .filter(([key, isChecked]) => isChecked && key in addOnsPrices)
-        .map(([key]) => ({
-          name: key,
-          price: addOnsPrices[key] * (formData.isYearlyPlan ? 10 : 1),
-        }));
-
-      const addOnsTotal = selectedAddOns.reduce(
-        (total, addOn) => total + addOn.price,
-        0,
-      );
-
-      const totalCost = planPrice + addOnsTotal;
-
-      return { planPrice, totalCost, selectedAddOns };
-    },
-    [],
-  );
-
   const contextValue = useMemo(
     () => ({
       formData,
@@ -248,7 +165,6 @@ export const FormProvider = ({ children }: FormContextProps) => {
       errors,
       tooltipVisibility,
       currentStep,
-      calculatePlanAndTotalCost,
       handleChange,
       handleNextStep,
       handlePrevStep,

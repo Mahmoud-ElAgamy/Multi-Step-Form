@@ -7,40 +7,16 @@ const Step1 = lazy(() => import("./Step1"));
 const Step2 = lazy(() => import("./Step2"));
 const Step3 = lazy(() => import("./Step3"));
 const Step4 = lazy(() => import("./Step4"));
-import NavigationControls from "./NavigationControls";
+import NavigationControls from "./ui/NavigationControls";
 const ConfirmingMsg = lazy(() => import("./ConfirmingMsg"));
 
-// Types
-type StepTitleAndSubTitle = {
-  [key: number]: {
-    title: string;
-    subTitle: string;
-  };
-};
+// Data
+import stepData from "../data/stepData";
 
 const MultiStepForm = memo(() => {
   const { currentStep, motion, AnimatePresence } = useFormContext();
 
-  const stepTitleAndSubTitle: StepTitleAndSubTitle = {
-    1: {
-      title: "Personal Info",
-      subTitle: "Please provide your name, email address, and phone number.",
-    },
-
-    2: {
-      title: "Select your plan",
-      subTitle: "You have the option of monthly of yearly billing.",
-    },
-
-    3: {
-      title: "Pick add-ons",
-      subTitle: "Add-ons help enhance your gaming experience.",
-    },
-    4: {
-      title: "Finishing up",
-      subTitle: "Double check everything looks OK before confirming.",
-    },
-  };
+  const { title, subTitle } = stepData[currentStep - 1] || {};
 
   const stepToDisplay: Record<number, JSX.Element> = {
     1: <Step1 />,
@@ -72,17 +48,13 @@ const MultiStepForm = memo(() => {
           {currentStep < 5 && (
             <>
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-marine-blue">
-                  {stepTitleAndSubTitle[currentStep]?.title}
-                </h2>
-                <h3 className="text-dimgray">
-                  {stepTitleAndSubTitle[currentStep]?.subTitle}
-                </h3>
+                <h2 className="text-2xl font-bold text-marine-blue">{title}</h2>
+                <h3 className="text-dimgray">{subTitle}</h3>
               </div>
-              <NavigationControls />
             </>
           )}
           {stepToDisplay[currentStep]}
+          {currentStep < 5 && <NavigationControls />}
         </motion.form>
       </Suspense>
     </AnimatePresence>

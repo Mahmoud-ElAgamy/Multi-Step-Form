@@ -1,12 +1,9 @@
 import { useEffect, useRef } from "react";
 
-import useFormContext from "../hooks/useFormContext";
+import useFormContext from "../../hooks/useFormContext";
 
-type TooltipProps = {
-  message: string;
-  isVisible: boolean;
-  hideTooltip: () => void;
-};
+// Types
+import { TooltipProps } from "../../types/stepData";
 
 const Tooltip = ({ message, isVisible, hideTooltip }: TooltipProps) => {
   const { currentStep, motion, AnimatePresence } = useFormContext();

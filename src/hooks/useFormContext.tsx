@@ -2,7 +2,7 @@ import { useContext } from "react";
 import FormContext from "../context/FormContext";
 
 // Types
-import { FormContextType } from "../context/FormContext";
+import { FormContextType } from "../types/formData";
 
 const useFormContext: () => FormContextType = () => {
   const context = useContext(FormContext);
