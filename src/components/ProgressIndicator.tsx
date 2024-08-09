@@ -41,7 +41,7 @@ const ProgressIndicator = memo(() => {
         {steps.map((step) => (
           <li key={step.id} className="flex items-center gap-3">
             <span
-              className={`grid size-8 place-content-center rounded-full border border-slate-100 font-bold transition ${currentStep === step.id ? "bg-Light-blue text-marine-blue" : "text-white"}`}
+              className={`grid size-8 place-content-center rounded-full border border-slate-100 font-bold transition duration-500 ${currentStep === step.id ? "bg-Light-blue text-marine-blue" : "text-white"}`}
             >
               {currentStep > step.id ? (
                 <Check className="text-green-400" />
