@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# React Multi Step Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Screenshots:**
 
-Currently, two official plugins are available:
+![](src/assets/images/Multi-Step-Form.png)
+![](src/assets/images/Multi-Step-Form-mobile.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Technologies:**
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) - A Utility-First CSS Framework.
+- [Framer Motion](https://www.framer.com/motion/) - A Powerful Animation Library for React.
+- [DaisyUI](https://daisyui.com/) - A UI Library.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Links:**
 
-- Configure the top-level `parserOptions` property like this:
+- Solution URL: [View](https://www.frontendmentor.io/solutions/a-simple-multi-step-form-built-with-react-SheNkh1Rey)
+- Live Site URL: [https://multi-step-form-3.netlify.app/](https://multi-step-form-3.netlify.app/)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+**Author:**
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Frontend Mentor: [Mahmoud ELagamy](https://www.frontendmentor.io/profile/Mahmoud-ElAgamy)
