@@ -45,6 +45,7 @@ const Step1 = () => {
             value={formData[name as FormDataKeys]}
             autoFocus={name === "name" && true}
             onChange={handleChange}
+            dir="auto"
           />
           {errors[name] && (
             <Tooltip
