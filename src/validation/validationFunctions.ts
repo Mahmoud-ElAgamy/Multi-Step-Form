@@ -13,10 +13,10 @@ export const validateEmail = (email: string): string => {
 };
 
 export const validatePhone = (phone: string): string => {
-  const phoneRegex = /^\d{10,}$/;
+  const phoneRegex = /^\+\d{1,4}(\s?\d{1,4}){1,4}$/;
   if (!phone.trim()) return "Please provide your phone number.";
   if (!phoneRegex.test(phone.trim()))
-    return "Enter a valid phone number (at least 10 digits).";
+    return "Enter a valid phone number (at least 10 digits starts with +).";
   return "";
 };
 
