@@ -11,7 +11,7 @@ const Step4 = () => {
     selectedAddOns.map((addOn) => (
       <div
         key={addOn.name}
-        className="picked-add-on flex w-[140px] flex-shrink-0 flex-col items-center justify-center rounded-md border border-[#ccc] bg-[#f9f9f9] p-2"
+        className="picked-add-on flex w-[140px] flex-shrink-0 flex-col items-center justify-center rounded-md border border-[#ddd] bg-[#f2f2f2] p-2"
       >
         <h2>{addOn.name.replace("-", " ")} </h2>
         <span className="flex items-center justify-center normal-case text-purplish-blue">
@@ -43,7 +43,7 @@ const Step4 = () => {
             </button>
           </div>
         </div>
-        <div className="mx-auto rounded-md border border-[#ccc] bg-[#f9f9f9] p-2 shadow md:mx-0">
+        <div className="mx-auto rounded-md border border-[#ddd] bg-[#f2f2f2] p-2 shadow md:mx-0">
           <span className="capitalize text-marine-blue">
             {formData.plan} {formData.isYearlyPlan ? "(Yearly)" : "(Monthly)"}
           </span>
@@ -81,7 +81,7 @@ const Step4 = () => {
         <h2 className="text-lg font-semibold normal-case text-Cool-gray">
           Total (per {formData.isYearlyPlan ? "year" : "month"}):
         </h2>
-        <h3 className="mx-auto flex items-center rounded-md border border-[#ccc] bg-[#f9f9f9] p-2 text-lg normal-case text-purplish-blue shadow md:mx-0">
+        <h3 className="mx-auto flex items-center rounded-md border border-[#ddd] bg-[#f2f2f2] p-2 text-lg normal-case text-purplish-blue shadow md:mx-0">
           +<DollarSign size={16} />
           {totalCost}/{formData.isYearlyPlan ? "yr" : "mo"}
         </h3>

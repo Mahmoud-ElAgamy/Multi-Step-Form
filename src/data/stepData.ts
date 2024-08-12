@@ -13,7 +13,7 @@ const stepData = [
           icon: UserPen,
         },
         type: "text",
-        placeholder: "e.g. Stephen King",
+        placeholder: "e.g. Mahmoud Elagamy",
       },
       {
         name: "email",
@@ -22,7 +22,7 @@ const stepData = [
           icon: Mail,
         },
         type: "email",
-        placeholder: "e.g. stephenking@example.com",
+        placeholder: "e.g. mahmoudelagamy474@gmail.com",
       },
       {
         name: "phone",
@@ -31,7 +31,7 @@ const stepData = [
           icon: Smartphone,
         },
         type: "tel",
-        placeholder: "e.g. +1 234 567 890",
+        placeholder: "e.g. +012 779 11 846",
       },
     ],
   },
