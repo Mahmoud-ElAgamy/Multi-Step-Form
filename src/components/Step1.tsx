@@ -38,7 +38,7 @@ const Step1 = () => {
           <input
             ref={refs[name]}
             id={name}
-            className="w-full rounded-lg border border-slate-300 p-2 tracking-wide caret-purplish-blue shadow-sm outline-none transition focus:border-purplish-blue/40 focus:ring focus:ring-purplish-blue/10 focus:ring-opacity-50 lg:p-3"
+            className="w-full rounded-lg border border-slate-300 p-2 tracking-wide caret-purplish-blue shadow-sm outline-none transition focus:border-purplish-blue/40 focus:ring focus:ring-purplish-blue/10 focus:ring-opacity-50"
             placeholder={placeholder}
             type={type}
             name={name}
